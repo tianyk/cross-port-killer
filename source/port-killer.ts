@@ -81,7 +81,7 @@ export class Killer {
         const pids = data.trim().match(/\d+$/gm)
 
         if (pids && pids.length) {
-            return this.killByPids(pids.filter(pid => process.pid != pid)).then(killed => resolver(killed))
+            return this.killByPids(pids.filter(pid => process.pid !== parseInt(pid))).then(killed => resolver(killed))
         }
 
         resolver([])
